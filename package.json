@@ -15,14 +15,14 @@
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-scripts": "2.1.1",
-    "styled-components": "^4.0.3",
-    "typescript": "3.1.6"
+    "styled-components": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "tslint": "tslint --project . --format codeFrame",
+    "lint": "npm run tslint && npx tsc",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,6 +35,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "tslint": "^5.11.0"
+    "tslint": "^5.11.0",
+    "typescript": "3.1.6"
   }
 }
