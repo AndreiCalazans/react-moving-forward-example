@@ -3,7 +3,9 @@ import { Router } from '@reach/router';
 import { createGlobalStyle } from 'styled-components';
 import { UseHooks } from './modules/use-hooks';
 import { View } from './modules/components';
+import { HomeView } from './modules/home';
 import { css } from './modules/styled-components';
+import { UserContextProvider } from './modules/user';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -24,16 +26,19 @@ const GlobalStyle = createGlobalStyle`
 
 const globalWrapper = css`
   height: 100vh;
-  background-color: darkslategrey;
+  background-color: #95414147;
 `;
 
 function App() {
   return (
     <View customStyles={globalWrapper}>
-      <Router>
-        <UseHooks path='/hooks-everywhere' />
-      </Router>
-      <GlobalStyle />
+      <UserContextProvider>
+        <Router>
+          <HomeView path='/'/>
+          <UseHooks path='/hooks-everywhere/*' />
+        </Router>
+        <GlobalStyle />
+      </UserContextProvider>
     </View>
   );
 }

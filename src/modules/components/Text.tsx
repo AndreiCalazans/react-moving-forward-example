@@ -4,7 +4,7 @@ import styled, { css } from '../styled-components';
 
 export const TextTypes = {
   header: css`
-    font-size: 44px;
+    font-size: 6vw;
     font-weight: bold;
   `,
   subHeader: css`
@@ -19,7 +19,7 @@ export const TextTypes = {
   `,
   warning: css`
     font-size: 16px;
-    color: lightpink;
+    color: red;
   `,
   info: css`
     font-size: 16px;

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, SFC } from 'react';
+import { RouteComponentProps } from '@reach/router';
 import { View } from '../components';
 
-export const Counter = () => {
+export const Counter: SFC<RouteComponentProps> = () => {
   const [count, setCount] = useState(0);
   return (
     <View>

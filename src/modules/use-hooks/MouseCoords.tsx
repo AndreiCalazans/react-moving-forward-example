@@ -1,8 +1,9 @@
 import React from 'react';
+import { RouteComponentProps } from '@reach/router';
 import { View } from '../components';
 import { useMouseMovement } from './useMouseMovement';
 
-export const MouseCoords: React.SFC<{}> = () => {
+export const MouseCoords: React.SFC<RouteComponentProps> = () => {
   const mouseCoords = useMouseMovement();
   return (
     <View>
