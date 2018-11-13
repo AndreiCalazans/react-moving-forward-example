@@ -8,7 +8,9 @@ export const MouseCoords: React.SFC<RouteComponentProps> = () => {
   return (
     <View>
       <h3>Mouse coordinates</h3>
-      <p>The current mouse position is: x: {mouseCoords.x} y: {mouseCoords.y}</p>
+      <p>
+        The current mouse position is: x: {mouseCoords.x} y: {mouseCoords.y}
+      </p>
     </View>
   );
 };

@@ -4,5 +4,5 @@ export type ActionGen<T> = {
 
 export type ActionGenPayload<T, S> = {
   type: T;
-  payload: S,
+  payload: S;
 };

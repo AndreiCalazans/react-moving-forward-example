@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 type Coords = {
-  x: number,
-  y: number,
+  x: number;
+  y: number;
 };
 
 const handleMouseMovement = (setCoords: (c: Coords) => void) => (event: any) => {

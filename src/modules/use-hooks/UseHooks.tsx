@@ -32,7 +32,7 @@ export const UseHooks: React.SFC<RouteComponentProps> = () => {
         <Text type='header'>Use hooks everywhere</Text>
         <Text type='body'>Hello {state.name}, click on the different tabs to see implementation options.</Text>
       </View>
-      <Tabs tabs={tabs}/>
+      <Tabs tabs={tabs} />
       <Router>
         <MouseCoords path='/mouse-coords' />
         <Counter path='/counter' />

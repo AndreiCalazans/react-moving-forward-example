@@ -4,14 +4,14 @@ import styled from '../styled-components';
 import equals from 'ramda/es/equals';
 
 const Button = styled.button<{ isActive: boolean }>`
- background-color: lightblue;
- border: ${(p) => p.isActive ? '3px solid lightgreen' : 'none'};
- margin: 10px;
- width: 130px;
- height: 30px;
- color: white;
- font-weight: bold;
- font-size: 16px;
+  background-color: lightblue;
+  border: ${(p) => (p.isActive ? '3px solid lightgreen' : 'none')};
+  margin: 10px;
+  width: 130px;
+  height: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
 `;
 
 export enum ListOrder {
@@ -20,8 +20,8 @@ export enum ListOrder {
 }
 
 type Props = {
-  selectedListOrder: ListOrder,
-  setListOrder: (val: ListOrder) => void,
+  selectedListOrder: ListOrder;
+  setListOrder: (val: ListOrder) => void;
 };
 
 export const OrderOptions: React.SFC<Props> = ({ setListOrder, selectedListOrder }) => {

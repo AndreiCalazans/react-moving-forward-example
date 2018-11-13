@@ -16,9 +16,8 @@ const futureDate = () => new Date(Date.now() + 20 * oneDay);
 
 type D = Dispatch<SetStateAction<typeof initialValue>>;
 
-const setInputValue = (field: string, setValue: D) =>
-  (value: string) =>
-    setValue((prevState) => ({ ...prevState, [field]: value }));
+const setInputValue = (field: string, setValue: D) => (value: string) =>
+  setValue((prevState) => ({ ...prevState, [field]: value }));
 
 // make this a modal route render on top
 export const AddClass: React.SFC<RouteComponentProps> = () => {
@@ -33,9 +32,9 @@ export const AddClass: React.SFC<RouteComponentProps> = () => {
     <View customStyles={{ backgroundColor: 'lightgreen' }}>
       <Text type='title'>Add a class</Text>
       <form onSubmit={onSubmit}>
-        <Input title='name' value={klass.name} onChange={setInputValue('name', setKlass)}  />
-        <Input title='image' value={klass.image} onChange={setInputValue('image', setKlass)}  />
-        <Input type='number' title='duration' value={klass.duration} onChange={setInputValue('duration', setKlass)}  />
+        <Input title='name' value={klass.name} onChange={setInputValue('name', setKlass)} />
+        <Input title='image' value={klass.image} onChange={setInputValue('image', setKlass)} />
+        <Input type='number' title='duration' value={klass.duration} onChange={setInputValue('duration', setKlass)} />
         <button onClick={onSubmit}>Submit</button>
       </form>
     </View>

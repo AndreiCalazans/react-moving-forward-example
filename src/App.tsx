@@ -34,7 +34,7 @@ function App() {
     <View customStyles={globalWrapper}>
       <UserContextProvider>
         <Router>
-          <HomeView path='/'/>
+          <HomeView path='/' />
           <UseHooks path='/hooks-everywhere/*' />
         </Router>
         <GlobalStyle />

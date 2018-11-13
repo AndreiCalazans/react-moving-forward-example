@@ -14,7 +14,7 @@ export const HomeView: React.SFC<RouteComponentProps> = () => {
     <View>
       <Text type='header'>Welcome to React Moving Forward</Text>
       <Text type='subHeader'>An example of app of what new patterns will emerge in React 16.7+</Text>
-      <Tabs tabs={tabs}/>
+      <Tabs tabs={tabs} />
     </View>
   );
 };

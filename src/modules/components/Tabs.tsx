@@ -9,7 +9,7 @@ type Tab = {
 };
 
 type Props = {
-  tabs: Tab[],
+  tabs: Tab[];
 };
 
 const styles = css`
@@ -25,6 +25,10 @@ const styles = css`
 
 export const Tabs: React.SFC<Props> = ({ tabs }) => (
   <View customStyles={styles}>
-    {tabs.map((each, idx) => <Link key={each.name + idx} to={each.path}>{each.name}</Link>)}
+    {tabs.map((each, idx) => (
+      <Link key={each.name + idx} to={each.path}>
+        {each.name}
+      </Link>
+    ))}
   </View>
 );

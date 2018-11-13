@@ -36,7 +36,7 @@ const ClassList: React.SFC<{}> = () => {
       <CardList>
         {sortedData.map((klass, idx) => (
           <Card key={klass.name + idx + 'card'}>
-            <img width='100%' src={klass.image}/>
+            <img width='100%' src={klass.image} />
             <div style={{ padding: 10 }}>
               <Text type='subHeader'>{klass.name}</Text>
               <Text type='info'>Duration: {klass.duration} minutes</Text>

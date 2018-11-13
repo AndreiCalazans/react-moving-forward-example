@@ -9,22 +9,22 @@ import { mockClasses, mockTeachers } from './mockData';
 type A<S, P> = ActionGenPayload<S, P>;
 
 export type Class = {
-  name: string,
-  duration: number,
-  credits: number,
-  image: string,
-  created: Date,
+  name: string;
+  duration: number;
+  credits: number;
+  image: string;
+  created: Date;
 };
 
 export type Teacher = {
-  name: string,
-  title: string,
-  image: string,
+  name: string;
+  title: string;
+  image: string;
 };
 
 type ClassesState = {
-  classes: Class[],
-  teachers: Teacher[],
+  classes: Class[];
+  teachers: Teacher[];
 };
 
 const initialState: ClassesState = {
@@ -64,9 +64,7 @@ export const removeClass = (name: string): A<ClassType.Remove, { name: string }>
   },
 });
 
-type ClassesAction =
-  ReturnType<typeof addClass> |
-  ReturnType<typeof removeClass>;
+type ClassesAction = ReturnType<typeof addClass> | ReturnType<typeof removeClass>;
 
 const matchClass = (name: string) => (klass: Class) => klass.name === name;
 
@@ -81,7 +79,7 @@ const reducer = (state: ClassesState, action: ClassesAction): ClassesState => {
     case ClassType.Remove: {
       return {
         ...state,
-        classes: filter(matchClass(action.payload.name) , state.classes),
+        classes: filter(matchClass(action.payload.name), state.classes),
       };
     }
     default: {

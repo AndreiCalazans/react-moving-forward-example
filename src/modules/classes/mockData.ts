@@ -1,11 +1,12 @@
 import { Class, Teacher } from './ProvideClasses';
 export const oneDay = 24 * 60 * 60 * 1000;
 
-const make = (base: any) => Array.from({ length: 10 }).map((_, idx) => ({
-  ...base,
-  name: base.name + idx,
-  created: new Date(Date.now() + idx * oneDay),
-}));
+const make = (base: any) =>
+  Array.from({ length: 10 }).map((_, idx) => ({
+    ...base,
+    name: base.name + idx,
+    created: new Date(Date.now() + idx * oneDay),
+  }));
 
 const baseClass = {
   name: 'MockedClass',
