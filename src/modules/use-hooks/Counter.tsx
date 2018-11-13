@@ -1,4 +1,4 @@
-import React, { useState, SFC } from 'react';
+import React, { useState, SFC, useCallback } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { View } from '../components';
 
@@ -9,8 +9,8 @@ export const Counter: SFC<RouteComponentProps> = () => {
       <h3>Counter</h3>
       <p>Counter: {count}</p>
       <div>
-        <button onClick={() => setCount(count + 1)}>Add</button>
-        <button onClick={() => setCount(count - 1)}>Subtract</button>
+        <button onClick={useCallback(() => setCount(count + 1), [count])}>Add</button>
+        <button onClick={useCallback(() => setCount(count - 1), [count])}>Subtract</button>
       </div>
     </View>
   );

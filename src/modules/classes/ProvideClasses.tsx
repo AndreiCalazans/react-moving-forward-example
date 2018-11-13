@@ -1,6 +1,7 @@
 import React, { useReducer, createContext, Dispatch, SetStateAction } from 'react';
 import filter from 'ramda/es/filter';
 import { ActionGenPayload } from '../../types/actions';
+import { mockClasses, mockTeachers } from './mockData';
 
 // Implementation of shared state using useReducer
 
@@ -12,6 +13,7 @@ export type Class = {
   duration: number,
   credits: number,
   image: string,
+  created: Date,
 };
 
 export type Teacher = {
@@ -24,10 +26,10 @@ type ClassesState = {
   classes: Class[],
   teachers: Teacher[],
 };
-const initialState: ClassesState = {
-  classes: [],
-  teachers: [],
 
+const initialState: ClassesState = {
+  classes: mockClasses,
+  teachers: mockTeachers,
 };
 
 const mockedDispatch = (_: ClassesAction) => {
@@ -68,12 +70,12 @@ type ClassesAction =
 
 const matchClass = (name: string) => (klass: Class) => klass.name === name;
 
-const reducer = (state: ClassesState, action: ClassesAction) => {
+const reducer = (state: ClassesState, action: ClassesAction): ClassesState => {
   switch (action.type) {
     case ClassType.Add: {
       return {
         ...state,
-        class: [...state.classes, action.payload.class],
+        classes: [...state.classes, action.payload.class],
       };
     }
     case ClassType.Remove: {

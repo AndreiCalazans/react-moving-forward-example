@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import { RouteComponentProps, Router } from '@reach/router';
 import { View, Text, Tabs } from '../components';
+import { ClassesView } from '../classes';
 import { UserContext } from '../user';
 import { MouseCoords } from './MouseCoords';
 import { Counter } from './Counter';
-import { ClassesView } from '../classes';
+import { AskName } from './AskName';
 
 const tabs = [
   {
@@ -22,12 +23,12 @@ const tabs = [
 ];
 
 export const UseHooks: React.SFC<RouteComponentProps> = () => {
-  const { state, dispatch } = useContext(UserContext);
+  const { state } = useContext(UserContext);
+  const [isModalVisible, setModalVisibilty] = useState(true);
 
   return (
     <View>
       <View>
-        <input onChange={(e) => dispatch({ name: e.target.value })}/>
         <Text type='header'>Use hooks everywhere</Text>
         <Text type='body'>Hello {state.name}, click on the different tabs to see implementation options.</Text>
       </View>
@@ -37,6 +38,7 @@ export const UseHooks: React.SFC<RouteComponentProps> = () => {
         <Counter path='/counter' />
         <ClassesView path='/classes/*' />
       </Router>
+      {/* <AskName isVisible={isModalVisible} onHide={useCallback(() => setModalVisibilty(false), [])} /> */}
     </View>
   );
 };

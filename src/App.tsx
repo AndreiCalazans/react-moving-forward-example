@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const globalWrapper = css`
-  height: 100vh;
+  min-height: 100vh;
   background-color: #95414147;
 `;
 

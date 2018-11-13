@@ -30,17 +30,20 @@ export const TextTypes = {
 type TextKeyTypes = keyof typeof TextTypes;
 
 const StyledText = styled.p<Props>`
+ color: ${(p) => p.color};
  ${(p) => TextTypes[p.type]}
  ${(p) => p.customStyles ? p.customStyles : undefined}
 `;
 
 type Props = {
   type: TextKeyTypes;
+  color?: string;
   customStyles?: InterpolationValue[],
 };
 
 export const Text: React.SFC<Props> = (props) => <StyledText { ...props} >{props.children}</StyledText>;
 
 Text.defaultProps = {
+  color: 'black',
   type: 'body',
 };

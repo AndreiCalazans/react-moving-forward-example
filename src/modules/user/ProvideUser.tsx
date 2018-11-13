@@ -3,7 +3,7 @@ import React, { useState, createContext, Dispatch, SetStateAction } from 'react'
 // Minimalistic implementation of shared state using useState
 
 const initialState = {
-  name: 'Dude',
+  name: '',
 };
 
 const mockedDispatch = (_: typeof initialState) => {
