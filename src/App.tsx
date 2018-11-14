@@ -38,7 +38,7 @@ function App() {
           <Router>
             <HomeView path='/' />
             <UseHooks path='/hooks-everywhere/*' />
-            <SuspenseExample path='/suspense/*' />;
+            <SuspenseExample path='/suspense/*' />
           </Router>
         </UserContextProvider>
       <GlobalStyle />

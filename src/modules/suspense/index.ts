@@ -1,1 +1,1 @@
-export * from './Suspense';
+export { SuspenseExample } from './Suspense';

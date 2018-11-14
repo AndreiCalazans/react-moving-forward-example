@@ -18,7 +18,7 @@ const useGoogleNewsData = () => {
   return googleNews;
 };
 
-export const SuspenseExample: React.SFC<RouteComponentProps> = () => {
+export const SuspenseExample: React.SFC<RouteComponentProps> = (props) => {
   const news = useGoogleNewsData();
 
   return (
