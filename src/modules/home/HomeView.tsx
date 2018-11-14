@@ -7,6 +7,10 @@ const tabs = [
     name: 'Hooks Everywhere',
     path: 'hooks-everywhere',
   },
+  {
+    name: 'Suspended Components',
+    path: 'suspense',
+  },
 ];
 
 export const HomeView: React.SFC<RouteComponentProps> = () => {

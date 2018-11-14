@@ -35,6 +35,11 @@ const ModalWrapper = styled.div<ModalProps>`
       font-weight: bold;
       margin: 20px;
     }
+    > button {
+      width: 80px;
+      height: 20px;
+      margin: 20px;
+    }
   }
 `;
 

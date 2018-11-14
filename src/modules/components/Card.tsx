@@ -11,7 +11,7 @@ const Div = styled.div`
   background-color: white;
   box-shadow: 5px 5px 16px 1px rgba(0, 0, 0, 0.3);
   min-height: 180px;
-  width: 300px;
+  min-width: 300px;
   margin: 5px;
   flex: 1;
 `;

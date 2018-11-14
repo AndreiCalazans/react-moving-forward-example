@@ -18,8 +18,9 @@ const styles = css`
   text-align: center;
   > a {
     margin: 5px;
-    width: 150px;
     height: 100px;
+    color: white;
+    font-weight: bold;
   }
 `;
 

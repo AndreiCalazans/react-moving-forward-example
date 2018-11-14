@@ -2,6 +2,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 import { createGlobalStyle } from 'styled-components';
 import { UseHooks } from './modules/use-hooks';
+import { SuspenseExample } from './modules/suspense';
 import { View } from './modules/components';
 import { HomeView } from './modules/home';
 import { css } from './modules/styled-components';
@@ -30,15 +31,17 @@ const globalWrapper = css`
 `;
 
 function App() {
+
   return (
     <View customStyles={globalWrapper}>
-      <UserContextProvider>
-        <Router>
-          <HomeView path='/' />
-          <UseHooks path='/hooks-everywhere/*' />
-        </Router>
-        <GlobalStyle />
-      </UserContextProvider>
+        <UserContextProvider>
+          <Router>
+            <HomeView path='/' />
+            <UseHooks path='/hooks-everywhere/*' />
+            <SuspenseExample path='/suspense/*' />;
+          </Router>
+        </UserContextProvider>
+      <GlobalStyle />
     </View>
   );
 }
