@@ -3,6 +3,9 @@
 _This repo is an example of how to use React Hooks and Suspense together. It approaches examples of almost all hook APIs and also displays some other possible integration between them. It also shows how we can leverage TypeScript with React._
 
 
+[Watch the presentation](https://youtu.be/UocLHjfgXLQ)
+
+
 ## Get started
 
 1) `git clone <repo_url>`
