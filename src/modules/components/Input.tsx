@@ -8,5 +8,10 @@ type Props = {
 } & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 export const Input: React.SFC<Props> = ({ title, value, onChange, ...props }) => {
-  return <input placeholder={title} value={value} onChange={(evt) => onChange(evt.target.value)} {...props} />;
+  return (
+    <React.Fragment>
+    <label>{title}:</label>
+    <input placeholder={title} value={value} onChange={(evt) => onChange(evt.target.value)} {...props} />
+  </React.Fragment>
+  );
 };
