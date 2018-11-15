@@ -45,29 +45,34 @@ const WithoutSuspense: React.SFC<RouteComponentProps> = () => {
   );
 };
 
-const getGoogleNewsResource = () => unstable_createResource(() =>
-  fetch(googleNewsUrl)
-    .then((res) => res.json())
-    .then((data) => data.articles));
+const getGoogleNewsResource = () =>
+  unstable_createResource(() =>
+    fetch(googleNewsUrl)
+      .then((res) => res.json())
+      .then((data) => data.articles),
+  );
 
 let GoogleNewsResource = getGoogleNewsResource();
 
 const WithSuspenseReload: React.SFC<RouteComponentProps> = () => {
   const [shouldReload, setReload] = useState(false);
-  useEffect(() => {
-    if (shouldReload) {
-      setReload(false);
-      GoogleNewsResource = getGoogleNewsResource();
-    }
-  }, [shouldReload]);
+  useEffect(
+    () => {
+      if (shouldReload) {
+        setReload(false);
+        GoogleNewsResource = getGoogleNewsResource();
+      }
+    },
+    [shouldReload],
+  );
 
   const news = GoogleNewsResource.read();
 
   return (
-  <React.Fragment>
-    <button onClick={() => setReload(!shouldReload)}>Reload data</button>
-    <NewsList news={news} />
-  </React.Fragment>
+    <React.Fragment>
+      <button onClick={() => setReload(!shouldReload)}>Reload data</button>
+      <NewsList news={news} />
+    </React.Fragment>
   );
 };
 
@@ -77,16 +82,15 @@ const WithSuspense: React.SFC<RouteComponentProps> = () => {
 };
 
 export const SuspenseExample: React.SFC<RouteComponentProps> = (props) => {
-
   return (
     <View>
       <Text type='body'>Suspending</Text>
       <Tabs tabs={tabs} />
       <Suspense maxDuration={3000} fallback={<Spinner />}>
         <Router>
-          <WithoutSuspense path='without-suspense'/>
-          <WithSuspense path='with-suspense'/>
-          <WithSuspenseReload path='with-suspense-reload'/>
+          <WithoutSuspense path='without-suspense' />
+          <WithSuspense path='with-suspense' />
+          <WithSuspenseReload path='with-suspense-reload' />
         </Router>
       </Suspense>
     </View>

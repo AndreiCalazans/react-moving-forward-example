@@ -31,16 +31,15 @@ const globalWrapper = css`
 `;
 
 function App() {
-
   return (
     <View customStyles={globalWrapper}>
-        <UserContextProvider>
-          <Router>
-            <HomeView path='/' />
-            <UseHooks path='/hooks-everywhere/*' />
-            <SuspenseExample path='/suspense/*' />
-          </Router>
-        </UserContextProvider>
+      <UserContextProvider>
+        <Router>
+          <HomeView path='/' />
+          <UseHooks path='/hooks-everywhere/*' />
+          <SuspenseExample path='/suspense/*' />
+        </Router>
+      </UserContextProvider>
       <GlobalStyle />
     </View>
   );

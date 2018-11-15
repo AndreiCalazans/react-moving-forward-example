@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Card, CardList } from '../components';
+import { Text, Card, CardList, Img } from '../components';
 
 export type NewsProps = {
   author?: string;
@@ -19,7 +19,7 @@ export const NewsList: React.SFC<{ news: NewsProps[] }> = ({ news }) => (
 
 export const News: React.SFC<NewsProps> = ({ urlToImage, title, publishedAt, description, author, index }) => (
   <Card>
-    <img width='100%' src={urlToImage} />
+    <Img width='100%' src={urlToImage} />
     <div style={{ padding: 10 }}>
       <Text type='subHeader'>{title}</Text>
       <Text type='body'>{description}</Text>
