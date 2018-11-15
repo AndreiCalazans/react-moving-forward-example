@@ -5,3 +5,4 @@ export { Tabs } from './Tabs';
 export { Card, CardList } from './Card';
 export { Spinner } from './Spinner';
 export { Img } from './Img';
+export { ToggleSwitch } from './ToggleSwitch';

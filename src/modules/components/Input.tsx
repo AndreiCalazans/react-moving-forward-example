@@ -10,8 +10,8 @@ type Props = {
 export const Input: React.SFC<Props> = ({ title, value, onChange, ...props }) => {
   return (
     <React.Fragment>
-    <label>{title}:</label>
-    <input placeholder={title} value={value} onChange={(evt) => onChange(evt.target.value)} {...props} />
-  </React.Fragment>
+      <label>{title}:</label>
+      <input placeholder={title} value={value} onChange={(evt) => onChange(evt.target.value)} {...props} />
+    </React.Fragment>
   );
 };

@@ -3,7 +3,7 @@ import { Router } from '@reach/router';
 import { createGlobalStyle } from 'styled-components';
 import { UseHooks } from './modules/use-hooks';
 import { SuspenseExample } from './modules/suspense';
-import { View } from './modules/components';
+import { View, ToggleSwitch } from './modules/components';
 import { HomeView } from './modules/home';
 import { css } from './modules/styled-components';
 import { UserContextProvider } from './modules/user';
@@ -30,9 +30,15 @@ const globalWrapper = css`
   background-color: #95414147;
 `;
 
-function App() {
+type Props = {
+  isConcurrent: boolean;
+  switchConcurrency: (is: boolean) => void;
+};
+
+function App({ isConcurrent, switchConcurrency }: Props) {
   return (
     <View customStyles={globalWrapper}>
+      <ToggleSwitch defaultValue={isConcurrent} onChange={switchConcurrency} />
       <UserContextProvider>
         <Router>
           <HomeView path='/' />

@@ -11,7 +11,6 @@ type Props = {
 
 type ModalProps = Pick<Props, 'isVisible'>;
 
-
 const ModalWrapper = styled.div<ModalProps>`
   background-color: #f44336f2;
   position: fixed;

@@ -60,12 +60,12 @@ export const AddClass: React.SFC<RouteComponentProps> = () => {
   return (
     <ModalStyle>
       <Text type='subHeader'>Add a class</Text>
-        <form onSubmit={onSubmit}>
-          <Input title='name' value={klass.name} onChange={setInputValue('name', setKlass)} />
-          <Input title='image' value={klass.image} onChange={setInputValue('image', setKlass)} />
-          <Input type='number' title='duration' value={klass.duration} onChange={setInputValue('duration', setKlass)} />
-          <button onClick={onSubmit}>Submit</button>
-        </form>
+      <form onSubmit={onSubmit}>
+        <Input title='name' value={klass.name} onChange={setInputValue('name', setKlass)} />
+        <Input title='image' value={klass.image} onChange={setInputValue('image', setKlass)} />
+        <Input type='number' title='duration' value={klass.duration} onChange={setInputValue('duration', setKlass)} />
+        <button onClick={onSubmit}>Submit</button>
+      </form>
     </ModalStyle>
   );
 };
