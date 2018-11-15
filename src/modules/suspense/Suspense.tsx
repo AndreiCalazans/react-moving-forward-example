@@ -21,15 +21,18 @@ const tabs = [
   },
 ];
 
+const fetchGoogleNews = async (setGoogleNews: any) => {
+  const res = await fetch(googleNewsUrl);
+  if (res && res.ok) {
+    const data = await res.json();
+    setGoogleNews(data.articles);
+  }
+};
+
 const useGoogleNewsData = () => {
   const [googleNews, setGoogleNews] = useState([]);
-  useEffect(async () => {
-    // await delay(3000);
-    const res = await fetch(googleNewsUrl);
-    if (res && res.ok) {
-      const data = await res.json();
-      setGoogleNews(data.articles);
-    }
+  useEffect(() => {
+    fetchGoogleNews(setGoogleNews);
   }, []);
 
   return googleNews;
