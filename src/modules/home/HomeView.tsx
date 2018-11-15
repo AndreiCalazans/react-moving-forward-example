@@ -11,6 +11,10 @@ const tabs = [
     name: 'Suspended Components',
     path: 'suspense',
   },
+  {
+    name: 'Fetcher',
+    path: 'fetcher',
+  },
 ];
 
 export const HomeView: React.SFC<RouteComponentProps> = () => {

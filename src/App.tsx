@@ -7,6 +7,7 @@ import { View, ToggleSwitch } from './modules/components';
 import { HomeView } from './modules/home';
 import { css } from './modules/styled-components';
 import { UserContextProvider } from './modules/user';
+import { FetcherExample } from './modules/fetcher';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -44,6 +45,7 @@ function App({ isConcurrent, switchConcurrency }: Props) {
           <HomeView path='/' />
           <UseHooks path='/hooks-everywhere/*' />
           <SuspenseExample path='/suspense/*' />
+          <FetcherExample path='/fetcher' />
         </Router>
       </UserContextProvider>
       <GlobalStyle />
