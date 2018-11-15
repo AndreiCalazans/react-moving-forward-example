@@ -38,7 +38,7 @@ export const UseHooks: React.SFC<RouteComponentProps> = () => {
         <Counter path='/counter' />
         <ClassesView path='/classes/*' />
       </Router>
-      {/* <AskName isVisible={isModalVisible} onHide={useCallback(() => setModalVisibilty(false), [])} /> */}
+      <AskName isVisible={isModalVisible} onHide={useCallback(() => setModalVisibilty(false), [])} />
     </View>
   );
 };

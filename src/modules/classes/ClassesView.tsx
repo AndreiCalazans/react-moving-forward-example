@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { isEmpty, sort, last } from 'ramda';
+import React, { useContext, useState, useMemo } from 'react';
+import { isEmpty, sort } from 'ramda';
 import { RouteComponentProps, Link, Router } from '@reach/router';
 import { View, Text, Card, CardList } from '../components';
 import { ClassesContext, Class, ClassesContextProvider } from './ProvideClasses';
@@ -24,7 +24,7 @@ const ClassList: React.SFC<{}> = () => {
   const classState = useContext(ClassesContext);
   const [selectedListOrder, setListOrder] = useState(ListOrder.Asc);
   const { classes } = classState.state;
-  const sortedData = sortBy(selectedListOrder, classes);
+  const sortedData = useMemo(() => sortBy(selectedListOrder, classes), [selectedListOrder, classes]);
 
   if (isEmpty(classes)) {
     return <EmptyState />;
