@@ -1,15 +1,25 @@
 # React Moving Forward
 --  --  --  --  --  
-_This repo is an example of how to use React Hooks and Suspense together. It approaches examples of almost all hook APIs and also displays some other possible integration between them._
+_This repo is an example of how to use React Hooks and Suspense together. It approaches examples of almost all hook APIs and also displays some other possible integration between them. It also shows how we can leverage TypeScript with React._
 
 
 ## Get started
 
 1) `git clone <repo_url>`
 2) `yarn`
-3) `yarn start`
+3) Override types - look down.
+4) `yarn start`
 
 
+**Override types:**
+
+1) Create missing `createRoot` type in @types/react-dom
+In `react-moving-forward-example/node_modules/@types/react-dom/index` after `createPortal`
+add:
+`export function createRoot(children: any): any;`
+
+2) Uncomment Suspense's maxDuration in @types/react 
+In `react-moving-forward-example/node_modules/@types/react/index` search for maxDuration inside the Suspense type and uncomment maxDuration
 
 
 
@@ -41,13 +51,61 @@ _The app fetches news articles from google news api, I've kept my google api key
 * useMutationEffect
 * useLayoutEffect
 
-### 2) New patterns that will emerge with Hooks & Suspense?
+### 2) New patterns that will emerge with Hooks & Suspense.
+
+**Request data inside Function Components**
+
+[code](https://github.com/AndreiCalazans/react-moving-forward-example/blob/8634ff1ed7aad09f0868f597d6268b79515c368d/src/modules/suspense/Suspense.tsx#L32-L39)
+
+```JavaScript
+const useGoogleNewsData = () => {
+  const [googleNews, setGoogleNews] = useState([]);
+  useEffect(() => {
+    fetchGoogleNews(setGoogleNews);
+  }, []);
 
 
+  return googleNews;
+};
+
+```
 
 
+**Minimalistic State shared with Context:**
+_Note that it's recommended to separate the Provider into two._
+
+[code](https://github.com/AndreiCalazans/react-moving-forward-example/blob/8634ff1ed7aad09f0868f597d6268b79515c368d/src/modules/user/ProvideUser.tsx#L21-L29)
+
+```JavaScript
+export const UserContextProvider: React.SFC<{}> = ({ children }) => {
+  const [state, dispatch] = useState(initialState);
+  const value = {
+    state,
+    dispatch,
+  };
 
 
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+};
+```
+
+**Fetcher: A component that fetches and component resolution incorporated with Suspense.**
+
+[code](https://github.com/AndreiCalazans/react-moving-forward-example/blob/8634ff1ed7aad09f0868f597d6268b79515c368d/src/modules/fetcher/FetcherExample.tsx#L10-L21)
+```JavaScript
+    <View>
+      <Text type='body'>Fetcher example</Text>
+      <Fetcher
+        url={googleNewsUrl}
+        mapData={(dt) => dt.articles}
+        onRender={({ data }: any) => <NewsList news={data} />}
+        onFallback={<p>Loading...</p>}
+        onFailure={<p>Failure</p>}
+        maxDuration={1000}
+        saveData={(dt) => null}
+      />
+    </View>
+```
 
 
 
@@ -67,5 +125,7 @@ https://github.com/facebook/react/issues/14110
 https://github.com/reactjs/rfcs/pull/68#issuecomment-433186942
 
 - useContext updates all connected components independent if dependent value updated.
+
+
 
 
