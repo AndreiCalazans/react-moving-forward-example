@@ -12,8 +12,8 @@ const EmptyState: React.SFC<{}> = () => (
   </View>
 );
 
-const sortAsc = (a: Class, b: Class) => a.created.getMilliseconds() - b.created.getMilliseconds();
-const sortDes = (a: Class, b: Class) => b.created.getMilliseconds() - a.created.getMilliseconds();
+const sortAsc = (a: Class, b: Class) => a.created.getTime() - b.created.getTime();
+const sortDes = (a: Class, b: Class) => b.created.getTime() - a.created.getTime();
 
 const sortBy = (direction: ListOrder, list: Class[]) => {
   const comparator = direction === ListOrder.Asc ? sortAsc : sortDes;
@@ -22,8 +22,8 @@ const sortBy = (direction: ListOrder, list: Class[]) => {
 
 const ClassList: React.SFC<{}> = () => {
   const classState = useContext(ClassesContext);
-  const { classes } = classState.state;
   const [selectedListOrder, setListOrder] = useState(ListOrder.Asc);
+  const { classes } = classState.state;
   const sortedData = sortBy(selectedListOrder, classes);
 
   if (isEmpty(classes)) {
@@ -54,8 +54,8 @@ export const ClassesView: React.SFC<RouteComponentProps> = () => {
   return (
     <ClassesContextProvider>
       <View>
+        <Text type='subHeader'>Classes available to us</Text>
         <Link to='add-class'>Add class</Link>
-        <Text type='title'>Classes available to us</Text>
         <ClassList />
         <Router>
           <AddClass path='add-class' />

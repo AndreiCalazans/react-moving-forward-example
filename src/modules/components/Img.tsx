@@ -1,18 +1,10 @@
 import React, { Suspense, ImgHTMLAttributes } from 'react';
 import { unstable_createResource } from 'react-cache';
-import styled, { keyframes } from '../styled-components';
-
-const blurIn = keyframes`
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opactiy: 1;
-  }
-`;
+import styled from '../styled-components';
+import { blurInCss } from '../styles';
 
 const StyledImg = styled.img`
-  animation: ${blurIn} 0.6s 1 linear;
+  ${blurInCss}
 `;
 
 const ImageResource = unstable_createResource((url: string) => {
