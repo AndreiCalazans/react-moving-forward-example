@@ -86,7 +86,7 @@ export const SuspenseExample: React.SFC<RouteComponentProps> = (props) => {
     <View>
       <Text type='body'>Suspending</Text>
       <Tabs tabs={tabs} />
-      <Suspense maxDuration={3000} fallback={<Spinner />}>
+      <Suspense maxDuration={1000} fallback={<Spinner />}>
         <Router>
           <WithoutSuspense path='without-suspense' />
           <WithSuspense path='with-suspense' />
